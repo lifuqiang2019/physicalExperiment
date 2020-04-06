@@ -20,7 +20,7 @@ session_start();
    .table_container {
      height: 600px;
      /* margin: -12% -33%; */
-     width: 98.1%;
+     width: 95.1%;
      padding: 27px;
      overflow-y: auto;
      overflow-x: auto;
@@ -89,7 +89,7 @@ session_start();
 
     <div class="main">
      
-          <form name="form1" action="ktxx.php" method="post">
+          <form name="form1" action="cores_experiment.php" method="post">
 
 
 <?php
@@ -97,7 +97,7 @@ session_start();
 
 
             
-     $sql = "SELECT * from report";
+     $sql = "SELECT * from stu_experiment";
      //echo $sql;
       $result =  mysqli_query($conn,$sql) or die("false1");
     
@@ -107,12 +107,14 @@ session_start();
 <?php
   echo '<table border="1" align="center" class="table" style="width: 100%;">';
   echo '<br>';
-  echo '<caption class="h1"><h1>考试成绩</h1></caption>';
+  echo '<caption class="h1"><h1>实验成绩</h1></caption>';
   echo '<br>';
   echo '<tr>';
   echo '<th>真实姓名</th>';
+  echo '<th>实验类别</th>';
+  echo '<th>实验标准答案</th>';
+  echo '<th>学生答案</th>';
   echo '<th>成绩</th>';
-  echo '<th>次数</th>';
  
   echo '</tr>';
 
@@ -120,11 +122,11 @@ session_start();
     // $temp[] = $array['name'];
     // var_dump($temp);
     echo '<tr>';
-    echo "<td align='center'>{$array['reallyname']}</td>";
-    echo "<td align='center'>{$array['report']}</td>";
-    echo "<td align='center'>{$array['cs']}</td>";
-   
-   
+    echo "<td align='center'>{$array['stu_name']}</td>";
+    echo "<td align='center'>{$array['experiment_name']}</td>";
+    echo "<td align='center'>{$array['experiment_standard']}</td>";
+    echo "<td align='center'>{$array['stu_result']}</td>";
+    echo "<td align='center'>{$array['cores']}</td>";
     echo '</tr>';      
     }   
   ?>

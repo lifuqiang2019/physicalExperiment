@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
     include('conn.php');
     include('page.class.php');
@@ -51,24 +51,24 @@
 
     <div class="main">
 <fieldset>
-  <form action="check-test.php" method="post">
+  <form action="./interface/check-experiment.php" method="post">
 
     <table class="bg">
 
       <tr class="tr">
         <td width="200px" height="10px">
-           <center>考试类型<input type="text" name="kslx" class="kslx"/></center>
+           <center>实验类型<input type="text" name="experimental_type" class="kslx"/></center>
         </td>
         <td >
-          <center>考题类型
+          <!-- <center>实验类型
             <select name="ktlx">
               <option value="单选题">单选题</option>
               <option value="多选题">多选题</option>
               <option value="判断题">判断题</option>
               <option value="简答题">简答题</option>
-          </select>
+          </select> -->
           分数
-          <select name="fs">
+          <select name="max_nums">
             <?php for ($i=5; $i<45 ; $i=$i+5) {  ?>
 
             <option value="<?php echo $i;?>"><?php echo $i;?></option>
@@ -79,21 +79,32 @@
       </tr>
       <tr class="tr">
         <td width="100px" height="100px">
-          <center>考试内容</center>
+          <center>实验内容</center>
         </td>
         <td width="200px" height="100px">
-          <textarea class="srk" name="kqnr">
+          <textarea class="srk" name="experimental_content">
           </textarea>
         </td
       </tr>
-      <tr class="tr">
+      <!-- <tr class="tr">
         <td>
-          <center>考前答案</center>
+          <center>标准答案</center>
 
         </td>
         <td width="200px" height="100px">
           <textarea class="srk" name="kqda">
           </textarea>
+        </td
+      </tr> -->
+      <tr class="tr">
+        <td>
+          <center>实验数据数目</center>
+
+        </td>
+        <td width="200px" height="100px">
+          <!-- <textarea class="srk" name="kqda">
+          </textarea> -->
+          <input type="number" name="asks_nums" id="">
         </td
       </tr>
       <tr class="tr">
@@ -102,7 +113,7 @@
 
         </td>
         <td width="200px" height="100px">
-          <textarea class="srk" name="zqda">
+          <textarea class="srk" name="experimental_standard">
           </textarea>
         </td>
       </tr>
@@ -112,7 +123,7 @@
 
         </td>
         <td width="200px" height="100px">
-          <textarea class="srk" name="kt_jx">
+          <textarea class="srk" name="experimental_jx">
           </textarea>
         </td>
       </tr>

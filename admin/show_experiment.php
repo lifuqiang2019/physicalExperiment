@@ -76,11 +76,11 @@
                       $tmp = !empty($_POST) ? $_POST : $_GET;
     
                          $whr=array();
-                      if(!empty($tmp['kt_lx'])){
-                        $whr[] = "kt_lx like '%{$tmp['kt_lx']}%'";
+                      if(!empty($tmp['experiment_name'])){
+                        $whr[] = "experiment_name like '%{$tmp['experiment_name']}%'";
                       }
-                      if(!empty($tmp['ks_nr'])){
-                        $whr[] = "ks_nr like '%{$tmp['ks_nr']}%'";
+                      if(!empty($tmp['ask_content'])){
+                        $whr[] = "ask_content like '%{$tmp['ask_content']}%'";
                       }
                       
                       if(!empty($whr)){
@@ -95,7 +95,7 @@
                    
                    
                     //獲取總記錄數
-                    $sql = "SELECT count(*) as total from topic {$where}";
+                    $sql = "SELECT count(*) as total from experiment {$where}";
                     //echo $sql."<br>";
                     $res = mysqli_query($conn,$sql);
                     $data = mysqli_fetch_assoc($res);
@@ -106,37 +106,38 @@
 
 
 
-                      $sql = "SELECT * from topic  {$where} order by id {$page->limit}";
+                      $sql = "SELECT * from experiment  {$where} order by id {$page->limit}";
                       //var_dump($sql);
-                      //echo $sql."<br>";
+                    //   echo $sql."<br>";
                       $result = mysqli_query($conn,$sql) or die("gg");
 
-                      echo "搜索試題<br>";
-                      echo '<form action="ktlb.php?action=ser" method="post" name="form1">';
+                      echo "搜索实验<br>";
+                      echo '<form action="./show_experiment.php?action=ser" method="post" name="form1">';
                       
-                      echo '輸入考題';
-                      echo '　<input type="text" name="ks_nr" size=20 >　　';
+                      echo '輸入内容';
+                      echo '　<input type="text" name="ask_content" size=20 >　　';
                       echo '<input type="submit" name="sersubmit" size=12 value="搜索" >';
                       echo '</form><br/>';
-
-                     while(list($id,$ks_lx, $kt_lx, $fs, $ks_nr, $kq_da, $zq_da,$kt_jx) = mysqli_fetch_row($result)) {
+                    // echo var_dump(mysqli_fetch_array($result));
+                    // exit();
+                     while(list($id,$experiment_name, $asks_nums, $standard_answer, $ask_content, $max_nums, $experimental_jx) = mysqli_fetch_row($result)) {
                        
 
-                        echo '<form action="modify.php" method="post" name="form1" >';
+                        echo '<form action="./interface/modify-experimental.php" method="post" name="form1" >';
                         echo '<table width="682" height="168" border="0"  bgcolor="#5D554A">';
                         echo '<tr>';
                         echo '<td width="112" height="27" align="center" bgcolor="#DDDDDD" class="STYLE1">';
-                        echo '考試類型';
+                        echo '实验類型';
                         echo '</td>';
                         echo' <td width="117" align="center" bgcolor="#DDDDDD" class="STYLE1">
-                          '.$ks_lx.'</td>';
+                          '.$experiment_name.'</td>';
                         echo '<td width="180" align="center" bgcolor="#DDDDDD" class="STYLE1">';
                         echo  '考题类型　　';
-                       echo "{$kt_lx}";
+                        echo "实验";
                         echo '</td>';
                         echo '<td width="148" align="center" bgcolor="#DDDDDD" class="STYLE1">';
                         echo '分数　　';
-                        echo "{$fs}";
+                        echo "{$max_nums}";
                         
                         echo '</td>';
                         echo '<td width="99" rowspan="5" align="center" bgcolor="#FFFFFF" class="STYLE1">';
@@ -149,26 +150,26 @@
                     echo '</tr>';
                     echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '考題內容';
+                    echo '实验內容';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
-                    echo '<textarea name="ks_nr" cols="60" rows="5">'.$ks_nr.'</textarea>';
+                    echo '<textarea name="ask_content" cols="60" rows="5">'.$ask_content.'</textarea>';
                     echo '</td>';
                     echo '</tr>';
                      echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '考題選項';
+                    echo '选项个数';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
-                    echo '<textarea name="kq_da" cols="60" rows="5">'.$kq_da.'</textarea>';
+                    echo "<input name='asks_nums' type='number' value='$asks_nums'/>";
                     echo '</td>';
                     echo '</tr>';
                      echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '正確答案';
+                    echo '正确答案';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
-                    echo '<textarea name="zq_da" cols="60" rows="5">'.$zq_da.'</textarea>';
+                    echo '<textarea name="standard_answer" cols="60" rows="5">'.$standard_answer.'</textarea>';
                     echo '</td>';
                     echo '</tr>';
                     echo '<tr>';
@@ -176,7 +177,7 @@
                     echo '解析';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
-                    echo '<textarea name="kt_jx" cols="60" rows="5">'.$kt_jx.'</textarea>';
+                    echo '<textarea name="experimental_jx" cols="60" rows="5">'.$experimental_jx.'</textarea>';
                     echo '</td>';
                     echo '</tr>';
                         echo '</table>'; 

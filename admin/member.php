@@ -37,10 +37,16 @@
             <?php
             session_start();
             error_reporting(E_ALL || ~E_NOTICE);
-              if(isset($_SESSION['name'])){
-                echo "<li>管理员</li>";
-              }else{
-              echo '<li><a href="adlogin/login.php">管理员登录</li>';
+            include('adlogin/cookie.php');
+            if($_SESSION['name']==""){
+              echo "<script>alert('请登陆');history.go(-1);</script>"; 
+           }
+             if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='1'){
+                echo "<li>管理员 ".$_SESSION['name']."</li>";
+              } else if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='0') {
+                echo "<li>老师 ".$_SESSION['name']."</li>";
+              } else {
+                echo '<li><a href="adlogin/login.php">管理员登录</li>';
               }
               ?>    
               <?php
@@ -52,13 +58,7 @@
 
           </ul>
       </div>
-      <div class="left">
-          <dt>管理中心</dt>
-              <dd><a href="member.php">考生信息管理</a></dd>
-              <dd><a href="ktlb.php">考試類別管理</a></dd>
-              <dd><a href="add.php">考題信息添加</a></dd>
-              <dd><a href="ktxx.php">考題信息管理</a></dd>
-      </div>
+      <?php include('./left.php')?>
       
       <div class="right">
       			<?php
@@ -83,7 +83,7 @@
 
 	}
 
-	echo '<table border="1" width="900" align="center" class="table">';
+	echo '<table border="1" width="900" align="center" class="table" style="width: 201%;margin: 0 6%;">';
 	echo '<br>';
 	echo '<caption class="h1"><h1>考生信息</h1></caption>';
 	echo '<br>';

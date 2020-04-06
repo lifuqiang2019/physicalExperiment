@@ -19,11 +19,18 @@
             error_reporting(E_ALL || ~E_NOTICE);
             include('adlogin/cookie.php');
             //$username = $_SESSION['username'] 
-            //var_dump($_SESSION['name']);      
-             if(isset($_SESSION['name'])){
-                echo "<li>管理员</li>";
-              }else{
-              echo '<li><a href="adlogin/login.php">管理员登录</li>';
+            //var_dump($_SESSION['name']);
+            // echo $_SESSION['type'].$_SESSION['name'];
+            // echo var_dump($_SESSION);
+            if($_SESSION['name']==""){
+              echo "<script>alert('请登陆');history.go(-1);</script>"; 
+           }
+             if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='1'){
+                echo "<li>管理员 ".$_SESSION['name']."</li>";
+              } else if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='0') {
+                echo "<li>老师 ".$_SESSION['name']."</li>";
+              } else {
+                echo '<li><a href="adlogin/login.php">管理员登录</li>';
               }
            
               if(isset($_SESSION['name'])){
@@ -32,13 +39,7 @@
               ?>
           </ul>
       </div>
-      <div class="left">
-          <dt class="#">管理中心</dt>
-              <dd><a href="member.php">考生信息管理</a></dd>
-              <dd><a href="ktlb.php">考試類別管理</a></dd>
-              <dd><a href="add.php">考題信息添加</a></dd>
-              <dd><a href="ktxx.php">考題信息管理</a></dd>
-      </div>
+      <?php  include('./left.php') ?>
   </div>
 </body>
 </html>

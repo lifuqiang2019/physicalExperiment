@@ -41,7 +41,7 @@ session_start();
 		 }
 		else {
 			if($pws == $pws_confirm){
-				$conn = mysqli_connect("localhost","root","123456","online_test","3306") or die("连接失败");
+				$conn = mysqli_connect("localhost","root","111111","online_test","3306") or die("连接失败");
 				if(mysqli_error($conn)){
 					echo mysqli_error();
 					exit();
@@ -61,8 +61,8 @@ session_start();
 				}else{
 					
 
-					  $sql_insert = "INSERT into users(username,userpwd,userpwd1,zsname,sex,face,year,month,day,school,email) values('$user','$pws','$pws_confirm','$truename','$sex','$face','$year','$month','$day','$school','$email')";
-
+					$sql_insert = "INSERT into users(username,userpwd,userpwd1,zsname,sex,face,year,month,day,school,email) values('$user','$pws','$pws_confirm','$truename','$sex','$face','$year','$month','$day','$school','$email');";
+					// echo $sql_insert;
 	
 					//echo $sql_insert;
 					 $res_insert = mysqli_query($conn,$sql_insert) or die ("失败");

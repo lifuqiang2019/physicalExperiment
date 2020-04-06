@@ -2,7 +2,7 @@
     session_start();
     header("Content-Type:text/html;charset=utf-8");
     error_reporting(E_ALL || ~E_NOTICE);
-    $conn = mysqli_connect("localhost","root","123456") or die("链接失败");
+    $conn = mysqli_connect("localhost","root","111111") or die("链接失败");
     mysqli_select_db($conn,"online_test");
     mysqli_query($conn,"set names utf8");
 

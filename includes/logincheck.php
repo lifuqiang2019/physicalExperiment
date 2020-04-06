@@ -23,7 +23,7 @@
 		 }
 		 else{
 		 	//确认用户密码不为空则链接数据库
-		 	$conn = mysqli_connect("localhost","root","123456") or die("失败");
+		 	$conn = mysqli_connect("localhost","root","111111") or die("失败");
 		 	if(mysqli_error($conn)){
 					echo mysqli_error();
 					exit;
