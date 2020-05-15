@@ -8,7 +8,7 @@
                     while ($ww[$r]) {  
 
                     ?>
-                    <li><input   type="submit" name=<?php echo"submit".$r;?> value=<?php echo $ww[$r];?>  class="team_o">                                           
+                    <li><input   type="submit" name=<?php echo "submit".$r;?> value=<?php echo $ww[$r];?>  class="team_o">                                           
                     </span></li>
                     <?php
                     $r++;

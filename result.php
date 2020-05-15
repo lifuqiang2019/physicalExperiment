@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$rrr=$_SESSION['$rrr'];	
+	include ("includes/page.class.php");
 	include("conn/conn.php");
 ?>
 <!DOCTYPE html>
@@ -13,7 +15,7 @@
 	<div id="mainbody">
 		<div class="logo">
 			<div class="font-art">
-				<span class="art">JWroom</span><span class="art_two">考试系统</span>
+				<span class="art"></span><span class="art_two">考试系统</span>
 			</div>
 					<?php
 					include ('conn.php');
@@ -46,6 +48,11 @@
 						
 				</div>
 		</div>
+		<?php 
+			$cookie=$html['username'];
+			// echo $cookie."666";
+			// exit();
+		?>
 		<div class="mainbox">
 			<div class="top">
 				<p>考试结果</p>
@@ -134,15 +141,16 @@
 				<span class="right">排名:</span>
 				<span class="percent">NO.1</span>
 			</div> -->
-			<input type="password" placeholder="请输入您的查询码" name="search">
-			<input type="button" value="查询" id="search" name="searchbutton">
+			<!-- <input type="password" placeholder="请输入您的查询码" name="search">
+			<input type="button" value="查询" id="search" name="searchbutton"> -->
             <a href="analysis.php" style="text-decoration:none;"><input type="button" value="查看解析" id="analysis" name="analysis"></a>
-            <input type="button" value="退出此页" id="move" name="move">
+            <a href="startteam.php" style="text-decoration:none;"><input type="button" value="退出此页" id="move" name="move"></a>
 		</div>
 	</div>
 </body>
 </html>
 <?php
+
 $sql88 = "SELECT * from users where username = '{$username}'";
 $aaa=mysqli_query($conn,$sql88);
 $aad = mysqli_fetch_array($aaa);
@@ -151,7 +159,7 @@ $sql888 = "SELECT * from tom where id = '1'";
 $aaaa=mysqli_query($conn,$sql888);
 $aadd = mysqli_fetch_array($aaaa);
 $sz=$aadd['sz'];
-$sql99="insert into report (reallyname,report,cs)values('$zsname','$zf','$sz')";
+$sql99="insert into report (testname,reallyname,report,cs,stunum)values('$rrr','$zsname','$zf','$sz','$cookie')";
 $var=mysqli_query($conn,$sql99);
   var_dump($sql99);
 

@@ -20,7 +20,7 @@
 
 }
   </script>
-  <title>在線考試系統後台管理</title>
+  <title>在线考试后台管理系统</title>
 </head>
 <body>
 
@@ -88,19 +88,19 @@
 	echo '<caption class="h1"><h1>考生信息</h1></caption>';
 	echo '<br>';
 	echo '<tr>';
-	echo '<th>學號</th>';
+	echo '<th>学号</th>';
 	echo '<th>姓名</th>';
 	echo '<th>性別</th>';
-	echo '<th>郵件</th>';
-	echo '<th>學校</th>';
+	echo '<th>邮箱</th>';
+	echo '<th>学校</th>';
 	echo '<th>操作</th>';
 	echo '</tr>';
 	
 	while($array=mysqli_fetch_array($result)){
 		// $temp[] = $array['name'];
-		// var_dump($temp);
+		// var_dump($array);
 		echo '<tr>';
-		echo "<td align='center'>{$array['id']}</td>";
+		echo "<td align='center'>{$array['username']}</td>";
 		echo "<td align='center'>{$array['zsname']}</td>";
 		echo "<td align='center'>{$array['sex']}</td>";
 		echo "<td align='center'>{$array['email']}</td>";

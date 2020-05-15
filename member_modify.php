@@ -66,7 +66,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<title>JWroom考试系统</title>
+	<title>考试系统</title>
 	<link rel="stylesheet" type="text/css" href="css/change.css">
     <script type="text/javascript" src="js/face.js"></script>
 </head>

@@ -114,7 +114,7 @@
                       echo "搜索实验<br>";
                       echo '<form action="./show_experiment.php?action=ser" method="post" name="form1">';
                       
-                      echo '輸入内容';
+                      echo '输入内容';
                       echo '　<input type="text" name="ask_content" size=20 >　　';
                       echo '<input type="submit" name="sersubmit" size=12 value="搜索" >';
                       echo '</form><br/>';
@@ -127,7 +127,7 @@
                         echo '<table width="682" height="168" border="0"  bgcolor="#5D554A">';
                         echo '<tr>';
                         echo '<td width="112" height="27" align="center" bgcolor="#DDDDDD" class="STYLE1">';
-                        echo '实验類型';
+                        echo '实验类型';
                         echo '</td>';
                         echo' <td width="117" align="center" bgcolor="#DDDDDD" class="STYLE1">
                           '.$experiment_name.'</td>';

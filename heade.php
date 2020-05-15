@@ -88,22 +88,23 @@
                 <div class="compile">
                     <span style="cursor:pointer;float:left;color:white;margin-left:30px;font-size: 18px;position: relative;top:10px">个人信息</span>
                     <span style="cursor:pointer;float:right;color:white;margin-right:30px;font-size: 18px;position: relative;top:10px"><a href="member_modify.php"  style="color:white">编辑</a></span>
-</span>
+
                 </div>
                 <div class="jj_left">
                     <ul>
                         <li>昵称：<?php echo $html['username']?></li>
                         <li>真实姓名：<?php echo $html['zsname']?></li>
                         <li>性别：<?php echo $html['sex']?></li>
-                        <li>邮箱：<?php echo $html['email']?></li>
+                        
                       
                     </ul>
                 </div>
                 <div class="jj_right">
                     <ul>
-                          <li>学校：<?php echo $html['school']?></li>
-                        <li>职位：学生</li>
-                        <li>城市：吉林</li>
+                        <li>学校：<?php echo $html['school']?></li>
+                        <li>邮箱：<?php echo $html['email']?></li>
+                        <!-- <li>职位：学生</li>
+                        <li>城市：吉林</li> -->
                         <li>个性签名：<?php echo $html['qianming']?></li>
 
                     </ul>
@@ -111,18 +112,20 @@
             </div>
             <div class="menu_top" id="menu_top" style="width: 90%;margin: 0 auto;display: flex;
     justify-content: center;">
-                <ul id="menu_left" style="margin-left: -30px;">
+                <ul id="menu_left">
                     <!-- <a href=""><li>首页</li></a> -->
                     <a href="startteam.php"><li style="background: rgba(255,255,255,0.6);">考试试卷</li></a>
                     <a href="experiment.php"><li>物理实验</li></a>
-                    <a href="history.php"><li>历史记录</li></a>
+                    
                 </ul>
-                <div class="picture_head" id="picture_head" style="left: -1%;">
+                <div class="picture_head" id="picture_head">
                     <img src="<?php echo $html['face']?>" style="width:120px;height:120px;border:1px solid white;border-radius:50%;">
                 </div> 
                 <ul id="menu_right">
-                    <a href="shoucang.php"><li>收藏夹</li></a>
-                    <a href="mistake.php"><li>错题本</li></a>                    
+                    <!-- <a href="history.php"><li>历史记录</li></a> -->
+                    <a href="myResult.php"><li>我的成绩</li></a>
+                    <!-- <a href="shoucang.php"><li>收藏夹</li></a>
+                    <a href="mistake.php"><li>错题本</li></a>                     -->
                     <a href="includes/logout.php"><li>退出登录</li></a>
                 </ul>
             </div>

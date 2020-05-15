@@ -11,4 +11,5 @@
         <dd><a href="show_experiment.php">实验类别管理</a></dd>
         <dd><a href="cores_experiment.php">考生实验成绩</a></dd>
         <dd><a href="ktxx.php">考生考试成绩</a></dd>
+        <dd><a href="ktzxx.php">考生总成绩</a></dd>
 </div>

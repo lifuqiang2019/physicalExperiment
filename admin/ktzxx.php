@@ -21,7 +21,7 @@ include('session2.php');
         .table_container {
             height: 600px;
             /* margin: -12% -33%; */
-            width: 98.1%;
+            width: 93%;
             padding: 27px;
             overflow-y: auto;
             overflow-x: auto;
@@ -95,36 +95,40 @@ include('session2.php');
         <?php
         include('../conn/conn.php');
 
-
-        $sql = "SELECT * from report";
-        //echo $sql;
-        $result = mysqli_query($conn, $sql) or die("false1");
-
+        $sql = "SELECT a.reallyname,a.testname,a.report,b.experiment_name,b.stu_name,b.cores FROM report AS a,(SELECT MAX(cores) AS cores,stu_name,experiment_name FROM `stu_experiment` GROUP BY stu_name,experiment_name) AS b ";
+        $result = mysqli_query($conn, $sql) ;
+        $rows = array();
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_array($result)) {
+            $rows[] = $row;
+        }
         ?>
         <div class="scroll_hidden">
             <div class="table_container">
                 <?php
-                echo '<table border="1" align="center" class="table" style="width: 90%;">';
+                echo '<table border="1" align="center" class="table" style="width: 100%;">';
                 echo '<br>';
-                echo '<caption class="h1"><h1>考试成绩</h1></caption>';
+                echo '<caption class="h1"><h1>考试总成绩</h1></caption>';
                 echo '<br>';
                 echo '<tr>';
                 echo '<th>真实姓名</th>';
-                echo '<th>考试类别</th>';
                 echo '<th>学号</th>';
-                echo '<th>成绩</th>';
-
+                echo '<th>实验名称</th>';
+                echo '<th>实验成绩</th>';
+                echo '<th>考试名称</th>';
+                echo '<th>考试成绩</th>';
+                echo '<th>总成绩</th>';
                 echo '</tr>';
-
-                while ($array = mysqli_fetch_array($result)) {
-                    // $temp[] = $array['name'];
-                    // var_dump($array);
-                    // exit();
+                foreach ($rows as $array) {
+                    $result = $array['cores'] * 0.4 + $array['report'] * 0.6;
                     echo '<tr>';
                     echo "<td align='center'>{$array['reallyname']}</td>";
+                    echo "<td align='center'>{$array['stu_name']}</td>";
+                    echo "<td align='center'>{$array['experiment_name']}</td>";
+                    echo "<td align='center'>{$array['cores']}</td>";
                     echo "<td align='center'>{$array['testname']}</td>";
-                    echo "<td align='center'>{$array['stunum']}</td>";
                     echo "<td align='center'>{$array['report']}</td>";
+                    echo "<td align='center'>{$result}</td>";
                     echo '</tr>';
                 }
                 ?>

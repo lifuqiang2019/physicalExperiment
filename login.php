@@ -36,8 +36,8 @@
 	<div id="mainbody">
 		 <div class="mainbox">
 				<div class="top">
-					<div class="image"></div>
-					<div class="total"><p style="color:#0ef2fa">考试系统</p></div>
+					<!-- <div class="image"></div> -->
+					<div class="total" style="width: 100%;text-align: center;"><p style="color:#0ef2fa">考试系统</p></div>
 				</div>
 				<input type="text" name="username" class="xuehao" placeholder="学号" style="margin-top:50px">
 				<input type="password" name="userpwd" class="xuehao" placeholder="请输入密码">
@@ -46,6 +46,10 @@
 				<img  class="yzm" style="cursor: hand" src="includes/code.php" onclick="this.src='includes/code.php?'+Math.random()" style="margin-top:40px" width="130px" height="60px" >
 				
 				<button  id="begin" style="margin-top:25px;width:250px;height:40px;border:1px solid rgb(62,118,177);background:rgb(62,118,177);border-radius: 5px;color:white;">登录</button>
+				<div style="text-align: center">
+					<div  class="begin" style="margin-top:25px;width:250px;height:40px;line-height: 40px;border:1px solid rgb(62,118,177);background:rgb(62,118,177);border-radius: 5px;color:white;"><a href="./register.php">注册</a></div>
+					<div  class="begin" style="margin-top:25px;width:250px;height:40px;line-height: 40px;border:1px solid rgb(62,118,177);background:rgb(62,118,177);border-radius: 5px;color:white;"><a href="./getPassword.php">找回密码</a></div>
+				</div>
 				<span><input type="hidden" name="hidden" value="hidden"></span>
 		</div>
 	</div>

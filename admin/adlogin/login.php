@@ -36,10 +36,12 @@
 	<div id="mainbody">
 		 <div class="mainbox">
 				<div class="top">
-					<div class="image"></div>
-					<div class="total"><p style="color:#0ef2fa">考试系统</p></div>
+					<!-- <div class="image"></div> -->
+					<div class="total" style="width: 100%;text-align: center;">
+						<p style="color:#0ef2fa">考试系统</p>
+					</div>
 				</div>
-				<input type="text" name="username" class="xuehao" placeholder="学号">
+				<input type="text" name="username" class="xuehao" placeholder="用户">
 				<input type="password" name="userpwd" class="xuehao" placeholder="请输入密码">
 				<input type="text" class="xuehao" name="code" placeholder="验证码" id="validate">
 				<!-- <div class="image2" style="cursor: hand" src="code.php" onclick="this.src='code.php?'+Math.random()"></div> -->

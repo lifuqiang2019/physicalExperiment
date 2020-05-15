@@ -111,10 +111,10 @@
                       //echo $sql."<br>";
                       $result = mysqli_query($conn,$sql) or die("gg");
 
-                      echo "搜索試題<br>";
+                      echo "搜索试题<br>";
                       echo '<form action="ktlb.php?action=ser" method="post" name="form1">';
                       
-                      echo '輸入考題';
+                      echo '输入考题';
                       echo '　<input type="text" name="ks_nr" size=20 >　　';
                       echo '<input type="submit" name="sersubmit" size=12 value="搜索" >';
                       echo '</form><br/>';
@@ -126,7 +126,7 @@
                         echo '<table width="682" height="168" border="0"  bgcolor="#5D554A">';
                         echo '<tr>';
                         echo '<td width="112" height="27" align="center" bgcolor="#DDDDDD" class="STYLE1">';
-                        echo '考試類型';
+                        echo '考试类型';
                         echo '</td>';
                         echo' <td width="117" align="center" bgcolor="#DDDDDD" class="STYLE1">
                           '.$ks_lx.'</td>';
@@ -149,7 +149,7 @@
                     echo '</tr>';
                     echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '考題內容';
+                    echo '考题內容';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
                     echo '<textarea name="ks_nr" cols="60" rows="5">'.$ks_nr.'</textarea>';
@@ -157,7 +157,7 @@
                     echo '</tr>';
                      echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '考題選項';
+                    echo '考题选项';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
                     echo '<textarea name="kq_da" cols="60" rows="5">'.$kq_da.'</textarea>';
@@ -165,7 +165,7 @@
                     echo '</tr>';
                      echo '<tr>';
                     echo '<td height="43" align="center" bgcolor="#DDDDDD">';
-                    echo '正確答案';
+                    echo '正确答案';
                     echo '</td>';
                     echo '<td colspan="3" align="center" bgcolor="#FFFFFF" class="STYLE1">';
                     echo '<textarea name="zq_da" cols="60" rows="5">'.$zq_da.'</textarea>';

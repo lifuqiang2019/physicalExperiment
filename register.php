@@ -208,7 +208,7 @@ DateSelector.prototype.InitSelector = function (year, month, day) {
                 <span  id="register" class="face">头像</span>
                 <dd class="face" id="register">
                     
-                <input type="hidden" name="face" id="imgip" value="face/1.jpg">
+                <input type="hidden" name="face" id="imgip" value="./face/1.jpg">
                 <img style="cursor:pointer;"  src="face/1.jpg"  id="faceimg"  class="face" name="face"> 
                 </dd>
             </div>

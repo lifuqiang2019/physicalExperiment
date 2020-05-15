@@ -31,14 +31,17 @@
 		 }
 		mysqli_select_db($conn,"online_test");//选择数据库
 		mysqli_set_charset($conn,"utf8");//设置字符集
-		$sql = "select username,userpwd from users where username = '$user' and userpwd = '$pws'";
+		$sql = "select username,userpwd,zsname from users where username = '$user' and userpwd = '$pws'";
 		$result = mysqli_query($conn,$sql);
-		$num = mysqli_num_rows($result);//统计执行结果影响函数
+		$num = mysqli_fetch_row($result);//统计执行结果影响函数
 		//echo $num;
 		 if($num){ 
 				include('1.php');
 				include('2.php');
 				$_SESSION['username'] = $user;
+				$_SESSION['reallyname'] = $num[2];
+				// echo $_SESSION['username'];
+				// exit();
 				mysqli_close($conn);
 				echo "<script>alert('成功登录'); window.location.href='../startteam.php';</script>"; 
  					} else{ 

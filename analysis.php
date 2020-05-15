@@ -36,7 +36,7 @@
 		<div class="wholepage">
 			<div class="logo">
 			<div class="font-art">
-				<span class="art">JWroom</span><span class="art_two">考试系统</span>
+				<span class="art"></span><span class="art_two">考试系统</span>
 			</div>
 					<?php
 					include ('conn/conn.php');

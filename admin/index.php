@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <title>在線考試系統後台管理</title>
+  <title>在线考试后台管理系统</title>
 </head>
 <body>
   <div class="homepage">
@@ -23,7 +23,7 @@
             // echo $_SESSION['type'].$_SESSION['name'];
             // echo var_dump($_SESSION);
             if($_SESSION['name']==""){
-              echo "<script>alert('请登陆');history.go(-1);</script>"; 
+              echo "<script>alert('请登陆');window.location.href='./adlogin/login.php';</script>"; 
            }
              if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='1'){
                 echo "<li>管理员 ".$_SESSION['name']."</li>";

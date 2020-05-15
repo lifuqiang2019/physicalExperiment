@@ -32,34 +32,24 @@ session_start();
  </style>
  <script type="text/javascript">
          function del(){
-
       var msg=confirm("你确定删除此记录吗？");
-
       if(msg==true){
-
        return true;
-
       }else{
-
        return false;
-
  }
 
 }
  </script>
   </head>
   <body>
-  
-
       <div class="top">
       </div>
       <div class="nexttop">
           <div class="leftnexttop">
                 <p>在线考试后台管理系统</p>
           </div>
-           
           <ul>
-      
             <?php
             error_reporting(E_ALL || ~E_NOTICE);
             include('adlogin/cookie.php');
@@ -80,27 +70,16 @@ session_start();
                 echo "<li><a href='adlogin/logout.php'>退出</a></li>";
               }
               ?>
-
           </ul>
       </div>
       <?php include('./left.php')?>
-      
-
-
     <div class="main">
-     
           <form name="form1" action="cores_experiment.php" method="post">
-
-
 <?php
           include('../conn/conn.php');
-
-
-            
-     $sql = "SELECT * from stu_experiment";
+     $sql = "SELECT * from stu_experiment WHERE status = '1'";
      //echo $sql;
       $result =  mysqli_query($conn,$sql) or die("false1");
-    
 ?>
 <div class="scroll_hidden">
 <div class="table_container">
@@ -111,6 +90,7 @@ session_start();
   echo '<br>';
   echo '<tr>';
   echo '<th>真实姓名</th>';
+  echo '<th>学号</th>';
   echo '<th>实验类别</th>';
   echo '<th>实验标准答案</th>';
   echo '<th>学生答案</th>';
@@ -120,8 +100,9 @@ session_start();
 
     while($array=mysqli_fetch_array($result)){
     // $temp[] = $array['name'];
-    // var_dump($temp);
+    // var_dump($array);
     echo '<tr>';
+    echo "<td align='center'>{$array['zsname']}</td>";
     echo "<td align='center'>{$array['stu_name']}</td>";
     echo "<td align='center'>{$array['experiment_name']}</td>";
     echo "<td align='center'>{$array['experiment_standard']}</td>";
@@ -133,19 +114,10 @@ session_start();
 </div>
 </div>
         </form>
-        
-        
           <form name="form1" action="modify.php" method="post" >
-          
-            
             </form>
-           
             </div>
-             
             <div class="fenye">
-              
-             
             </div>
-            
   </body>
 </html>

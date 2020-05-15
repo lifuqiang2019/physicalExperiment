@@ -25,7 +25,8 @@
 }
 .mainbox{
   width: 450px;
-  height: 400px;
+  /* height: 400px; */
+  padding-bottom: 15px;
   border:2px solid rgb(157,168,206);
   position:relative;
   margin:180px auto;
@@ -100,6 +101,7 @@
 #begin:hover{
   background-color: rgb(62,118,177);
   color: white;
+  cursor: pointer;
 }
 img{
 
@@ -107,4 +109,15 @@ img{
   height:40px;
   margin-top: 20px;
   margin-left:20px;
+}
+.begin {
+  width: 252px;
+  margin: 0 auto;
+}
+.begin a {
+  text-decoration: none;
+  color: white;
+}
+.begin{
+  cursor: pointer;
 }
